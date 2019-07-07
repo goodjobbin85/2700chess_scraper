@@ -13,12 +13,20 @@ end
 
 ratings = page.css('tr td.live_standard_rating')
 
-name_rating_pair = names.zip(ratings)
-name_rating_pair.each do |name, rating|
-	puts "#{name.text}: #{rating.text}"
+country = page.css('td[class="country f24"] span[class="hidden searched"]')
+country.each do |country|
+	puts country.text
+end
+
+name_rating_country = names.zip(ratings, country)
+name_rating_country.each do |name, rating, country|
+	puts "#{name.text}: #{rating.text} #{country.text}"
 end
 
 puts "#{names.count} chess players"
+
+
+
 #puts "There are #{result.count} chess players on this list"
 
 #puts page.css('table[id="live-ratings-table"]')

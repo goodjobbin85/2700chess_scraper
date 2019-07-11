@@ -23,6 +23,10 @@ country.each do |country|
 	player_countries << country.text
 end
 
+player_age = []
+ages = page.css('td.age')
+ages.each { |age| player_age << age.text }
+
 name_rating_country = names.zip(ratings, country)
 name_rating_country.each do |name, rating, country|
 	puts "#{name.text}: #{rating.text} #{country.text}"
@@ -41,9 +45,9 @@ player_countries.each { |country| puts country }
 
 #write data to csv file
 CSV.open("player_listing.csv", "w") do |file|
-	file << ["Player Name", "Player Rating", "Player Country"]
+	file << ["Player Name", "Player Rating", "Player Country", "Player Age"]
 
 	player_names.size.times do |i|
-		file << [player_names[i], player_ratings[i], player_countries[i]]
+		file << [player_names[i], player_ratings[i], player_countries[i], player_age[i]]
 	end
 end

@@ -1,0 +1,1 @@
+var search_data = {"index":{"searchIndex":["nokogiri"],"longSearchIndex":["nokogiri"],"info":[["Nokogiri","","Nokogiri.html","",""]]}}
